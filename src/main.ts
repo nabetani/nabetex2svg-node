@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 
 interface IObjWithSvgTag {
   readonly svg: string;

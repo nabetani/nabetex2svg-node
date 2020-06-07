@@ -8,6 +8,10 @@
     "tsc": "tsc",
     "sample": "tsc && node build/Release/main.js -t sample/sample.tex -s sample/s0.jsonc -o sample/sample.svg && node build/Release/main.js -t sample/日本語を含む.tex -s sample/s0.jsonc -o sample/日本語を含む.svg"
   },
+  "main": "build/Release/main.js",
+  "bin": {
+    "nabetex2svg": "build/Release/main.js"
+  },
   "keywords": [
     "cli",
     "svg",
