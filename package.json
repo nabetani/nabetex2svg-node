@@ -1,6 +1,6 @@
 {
-  "name": "nabetex2svg-npm",
-  "version": "0.0.1",
+  "name": "nabetex2svg-node",
+  "version": "0.0.2",
   "description": "create svg file from tex using mathjax-node module.",
   "scripts": {
     "prepare": "tsc",
@@ -17,6 +17,16 @@
     "svg",
     "tex",
     "latex"
+  ],
+  "files": [
+    "LICENSE",
+    "package-lock.json",
+    "sample",
+    "build",
+    "package.json",
+    "src",
+    "readme.md",
+    "tsconfig.json"
   ],
   "repository": {
     "type": "git",
