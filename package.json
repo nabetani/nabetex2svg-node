@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "run": "tsc src/main.ts && node src/main.js -t sample/sample.tex -s sample/s0.jsonc -o sample/sample.svg && node src/main.js -t sample/日本語を含む.tex -s sample/s0.jsonc -o sample/日本語を含む.svg"
   },
   "keywords": [
     "cli",
@@ -15,9 +16,14 @@
   "author": "NABETANi Takenori",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^14.0.11",
+    "@types/yargs": "^15.0.5",
     "typescript": "^3.9.5"
   },
   "dependencies": {
-    "mathjax-node": "^2.1.1"
+    "jsonc": "^2.0.0",
+    "mathjax-node": "^2.1.1",
+    "node": "^14.4.0",
+    "yargs": "^15.3.1"
   }
 }

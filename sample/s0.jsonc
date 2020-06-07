@@ -1,0 +1,15 @@
+{
+  "config": {
+    // configuration for MathJax-node.
+    // see https://github.com/mathjax/MathJax-node#configoptions
+    "MathJax": {
+      // options for mathjax.
+      // see http://docs.mathjax.org/en/latest/options/index.html
+    }
+  },
+  "options": {
+    // options for typeset function.
+    // see https://github.com/mathjax/MathJax-node#typesetoptions-callback
+    "cjkCharWidth": 15
+  }
+}
