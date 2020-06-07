@@ -1,0 +1,23 @@
+{
+  "name": "nabetex2svg-npm",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc"
+  },
+  "keywords": [
+    "cli",
+    "svg",
+    "tex",
+    "latex"
+  ],
+  "author": "NABETANi Takenori",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "mathjax-node": "^2.1.1"
+  }
+}
