@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prepare": "tsc",
+    "build": "tsc",
     "tsc": "tsc",
-    "run": "tsc src/main.ts && node src/main.js -t sample/sample.tex -s sample/s0.jsonc -o sample/sample.svg && node src/main.js -t sample/日本語を含む.tex -s sample/s0.jsonc -o sample/日本語を含む.svg"
+    "sample": "tsc && node bin/main.js -t sample/sample.tex -s sample/s0.jsonc -o sample/sample.svg && node bin/main.js -t sample/日本語を含む.tex -s sample/s0.jsonc -o sample/日本語を含む.svg"
   },
   "keywords": [
     "cli",

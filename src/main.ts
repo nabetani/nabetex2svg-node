@@ -1,4 +1,16 @@
-import * as mjAPI from 'mathjax-node';
+
+interface IObjWithSvgTag {
+  readonly svg: string;
+};
+interface ITypesetCallback { (o: IObjWithSvgTag): void };
+interface IMathjaxAPI {
+  start(): void;
+  config(o: any): void;
+  typeset(o: any, callback: ITypesetCallback): void;
+}
+const mjAPI = require('mathjax-node') as IMathjaxAPI;
+
+
 import * as fs from 'fs';
 import * as yargs from 'yargs'
 import * as jsonc from 'jsonc';
@@ -22,10 +34,6 @@ const argv = yargs
   .help()
   .argv
 
-console.log(argv.tex);
-console.log(argv.settings);
-console.log(argv.out);
-
 const toString = (s: unknown): string => {
   if (typeof s === 'string') {
     return s;
@@ -34,7 +42,7 @@ const toString = (s: unknown): string => {
   }
 };
 
-const yourMath = fs.readFileSync(toString(argv.tex));
+const texText = fs.readFileSync(toString(argv.tex));
 const jsonBuffer = fs.readFileSync(toString(argv.settings));
 const settings = jsonc.jsonc.parse(jsonBuffer.toString());
 const defaultSettings = { MathJax: {} };
@@ -42,17 +50,14 @@ const defaultSettings = { MathJax: {} };
 mjAPI.config({ ...defaultSettings, ...settings["config"] });
 mjAPI.start();
 
-
-console.log("hoge");
-
 const defaultOptions = {
-  math: yourMath,
-  format: "TeX", // or "inline-TeX", "MathML"
-  svg: true,      // or svg:true, or html:true
+  math: texText,
+  format: "TeX", // the input format
+  svg: true, // generate SVG output
 };
 
 mjAPI.typeset(
   { ...defaultOptions, ...settings["options"] },
-  (data: any) => {
+  (data: IObjWithSvgTag) => {
     fs.writeFileSync(toString(argv.out), data.svg);
   });
